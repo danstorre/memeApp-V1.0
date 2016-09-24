@@ -74,9 +74,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             if (!completed) {
                 return
             }
-            self.reset()
+            
             self.alert()
             self.save(memeImage)
+            self.reset()
         }
     }
     @IBAction func pickAnImage(_ sender: AnyObject) {
