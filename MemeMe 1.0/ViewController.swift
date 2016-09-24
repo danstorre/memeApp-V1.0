@@ -25,6 +25,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     let doesDeviceHaveCamera = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     let doesDeviceHavePhotoLibrary = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary)
     
+    
+    enum ButtonPicker : Int{
+        case Camera = 1, Album
+    }
+    
     // MARK:- View Controller Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +58,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
     
     @IBAction func shareButton(sender: AnyObject) {
         
-        save()
+        
         guard let memeImage = userMeme.memeImage else {
             return
         }
@@ -69,24 +74,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
             }
             self.reset()
             self.alert(activityType!)
-            
+            self.save()
         }
     }
 
     @IBAction func pickAnImage(sender: AnyObject) {
         
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(pickerController, animated: true, completion: nil)
-    }
-    
-    @IBAction func pickAnImageFromCamera(sender: AnyObject) {
+        let button = sender as! UIBarButtonItem
         
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        
+        switch button.tag {
+        case ButtonPicker.Album.rawValue:
+            pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            self.presentViewController(pickerController, animated: true, completion: nil)
+        case ButtonPicker.Camera.rawValue:
+            pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+            self.presentViewController(pickerController, animated: true, completion: nil)
+        default:
+            break
+        }
+        
     }
     
     // MARK:- Notifications Methods

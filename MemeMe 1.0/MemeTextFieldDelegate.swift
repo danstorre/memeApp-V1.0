@@ -12,7 +12,9 @@ class MemeTextFieldDelegate: NSObject, UITextFieldDelegate{
     
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+            textField.text = ""
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

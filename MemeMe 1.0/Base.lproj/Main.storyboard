@@ -47,14 +47,14 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="XIc-SL-N1C"/>
-                                    <barButtonItem title="Camera" id="eNP-eC-DRy">
+                                    <barButtonItem tag="1" title="Camera" id="eNP-eC-DRy">
                                         <connections>
-                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="Izx-NN-C17"/>
+                                            <action selector="shareButton:" destination="BYZ-38-t0r" id="R9e-46-OD9"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Album" id="gD0-ea-DmY">
+                                    <barButtonItem tag="2" title="Album" id="gD0-ea-DmY">
                                         <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="aLb-nd-Ez1"/>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="voM-dz-bSO"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Msa-og-NtD"/>
