@@ -144,7 +144,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,UINaviga
         
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
-        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         topNavBar.hidden = false
