@@ -59,7 +59,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func shareButton(_ sender: AnyObject) {
         
         
-        guard let memeImage = userMeme.memeImage else {
+        guard let memeImage = generateMemedImage() else {
             return
         }
         let activityController = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil )
@@ -76,7 +76,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             }
             self.reset()
             self.alert()
-            self.save()
+            self.save(memeImage)
         }
     }
     @IBAction func pickAnImage(_ sender: AnyObject) {
@@ -136,7 +136,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return keyboardSize.cgRectValue.height
     }
     
-    func generateMemedImage() -> UIImage
+    func generateMemedImage() -> UIImage?
     {
         // Render view to an image
         topNavBar.isHidden = true
@@ -152,12 +152,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return memedImage
     }
     
-    func save() {
+    func save(_ memeImage : UIImage) {
         //Create the meme
         guard let imageFromPicker = imageFromPicker.image else {
             return
         }
-        userMeme = Meme(topText: topTF.text!, bottomText: bottomTF.text!, originalImage: imageFromPicker, memeImage: generateMemedImage())
+        userMeme = Meme(topText: topTF.text!, bottomText: bottomTF.text!, originalImage: imageFromPicker, memeImage: memeImage)
     }
     
     func reset(){
