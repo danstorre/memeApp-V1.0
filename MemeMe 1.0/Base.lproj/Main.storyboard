@@ -94,7 +94,6 @@
                             <constraint firstItem="Fj7-Rd-iEi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GuR-ee-kkG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9U1-pC-pE3" secondAttribute="trailing" id="HP2-k6-nPn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fj7-Rd-iEi" secondAttribute="trailing" constant="-20" id="KAF-mN-dz2"/>
-                            <constraint firstItem="Fj7-Rd-iEi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QOk-Zt-PQf"/>
                             <constraint firstItem="SVg-NH-Dlg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Rxn-rd-80Y"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HXa-Os-60g" secondAttribute="bottom" id="ToR-US-eHp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HXa-Os-60g" secondAttribute="trailing" constant="-20" id="VXt-ft-PVV"/>
@@ -104,13 +103,14 @@
                             <constraint firstItem="9U1-pC-pE3" firstAttribute="top" secondItem="SVg-NH-Dlg" secondAttribute="bottom" constant="20" id="cin-Ji-4jN"/>
                             <constraint firstItem="GOZ-43-p32" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="i5W-JP-JUh"/>
                             <constraint firstItem="HXa-Os-60g" firstAttribute="top" secondItem="GOZ-43-p32" secondAttribute="bottom" constant="20" id="iii-Zy-NHv"/>
+                            <constraint firstItem="Fj7-Rd-iEi" firstAttribute="top" secondItem="SVg-NH-Dlg" secondAttribute="bottom" id="kRX-qA-fMV"/>
                             <constraint firstItem="SVg-NH-Dlg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="xJ2-dZ-ckQ"/>
                             <constraint firstItem="GOZ-43-p32" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zAg-h6-uGb"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Aiv-By-HHe"/>
                                 <exclude reference="GuR-ee-kkG"/>
+                                <exclude reference="Aiv-By-HHe"/>
                             </mask>
                         </variation>
                     </view>

@@ -86,16 +86,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
         
-        switch button.tag {
-        case ButtonPicker.album.rawValue:
+        switch(ButtonPicker(rawValue: button.tag)!) {
+        case .album:
             pickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            self.present(pickerController, animated: true, completion: nil)
-        case ButtonPicker.camera.rawValue:
+        case .camera:
             pickerController.sourceType = UIImagePickerControllerSourceType.camera
-            self.present(pickerController, animated: true, completion: nil)
-        default:
-            break
         }
+        
+        present(pickerController, animated: true, completion: nil)
     }
 
     
