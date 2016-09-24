@@ -22,7 +22,7 @@ struct Meme {
         memeImage = UIImage()
     }
     
-    init(topText : String, bottomText : String, originalImage : UIImage, let memeImage : UIImage){
+    init(topText : String, bottomText : String, originalImage : UIImage, memeImage : UIImage){
         self.topText = topText
         self.bottomText = bottomText
         self.originalImage = originalImage

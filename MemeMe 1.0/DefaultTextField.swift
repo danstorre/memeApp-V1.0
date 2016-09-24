@@ -15,14 +15,14 @@ class DefaultTextField: UITextField {
         super.init(coder: aDecoder)
         let memeTextAttributes = [
              NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-             NSStrokeWidthAttributeName : NSNumber(float: -3),
-             NSStrokeColorAttributeName : UIColor.blackColor(),
-             NSForegroundColorAttributeName : UIColor.whiteColor()
+             NSStrokeWidthAttributeName : NSNumber(value: -3 as Float),
+             NSStrokeColorAttributeName : UIColor.black,
+             NSForegroundColorAttributeName : UIColor.white
         ]
         
         defaultTextAttributes = memeTextAttributes
         
-        textAlignment = .Center
+        textAlignment = .center
     }
     
     

@@ -10,6 +10,6 @@ import Foundation
 
 
 enum TextFieldType : Int{
-    case Top = 0, Bottom
+    case top = 0, bottom
 }
 
