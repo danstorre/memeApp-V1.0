@@ -12,7 +12,7 @@ struct Meme {
 
     let topText : String
     let bottomText : String
-    let originalImage : UIImage?
+    var originalImage : UIImage?
     let memeImage : UIImage?
     
     init(){

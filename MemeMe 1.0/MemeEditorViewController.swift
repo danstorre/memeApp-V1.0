@@ -20,7 +20,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var topNavBar: UINavigationBar!
     @IBOutlet weak var shareButtom: UIBarButtonItem!
     
-    var userMeme : Meme = Meme()
+    var aMeme : Meme?
     let customTFDelegate : MemeTextFieldDelegate = MemeTextFieldDelegate()
     let doesDeviceHaveCamera = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
     let doesDeviceHavePhotoLibrary = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary)
@@ -35,6 +35,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewDidLoad()
         topTF.delegate = customTFDelegate
         bottomTF.delegate = customTFDelegate
+        topTF.text = aMeme?.topText
+        bottomTF.text = aMeme?.bottomText
+        imageFromPicker.image = aMeme?.originalImage
         shareButtom.isEnabled = false
     }
     
@@ -42,6 +45,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         super.viewWillAppear(animated)
         cameraButton.isEnabled = doesDeviceHaveCamera
         libraryButton.isEnabled = doesDeviceHavePhotoLibrary
+        
+        
         subscribeToKeyboardNotifications()
         
     }
@@ -53,7 +58,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK:- Button Actions
     @IBAction func cancelButton(_ sender: UIBarButtonItem) {
-        reset()
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func shareButton(_ sender: AnyObject) {
@@ -78,6 +83,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             self.alert()
             self.save(memeImage)
             self.reset()
+            
         }
     }
     @IBAction func pickAnImage(_ sender: AnyObject) {
@@ -156,20 +162,28 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         guard let imageFromPicker = imageFromPicker.image else {
             return
         }
-        userMeme = Meme(topText: topTF.text!, bottomText: bottomTF.text!, originalImage: imageFromPicker, memeImage: memeImage)
+        aMeme = Meme(topText: topTF.text!, bottomText: bottomTF.text!, originalImage: imageFromPicker, memeImage: memeImage)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(aMeme!)
     }
     
     func reset(){
-        userMeme = Meme()
-        imageFromPicker.image = userMeme.originalImage
-        topTF.text = userMeme.topText
-        bottomTF.text = userMeme.bottomText
+        aMeme = Meme()
+        imageFromPicker.image = aMeme?.originalImage
+        topTF.text = aMeme?.topText
+        bottomTF.text = aMeme?.bottomText
         shareButtom.isEnabled = false
+        
     }
     
     func alert() {
         
-        let ok = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+        let ok = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { void -> () in
+            self.dismiss(animated: true, completion: nil)
+        })
         var alerController = UIAlertController()
         alerController = UIAlertController(title: "Success!", message: "Your meme has been shared", preferredStyle: .alert)
         alerController.addAction(ok)
@@ -182,7 +196,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            
+                
             imageFromPicker.image = image
             shareButtom.isEnabled = true
         }
