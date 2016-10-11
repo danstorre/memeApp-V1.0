@@ -25,6 +25,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     let doesDeviceHaveCamera = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
     let doesDeviceHavePhotoLibrary = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary)
     
+    var topText = ""
+    var bottomText = ""
     
     enum ButtonPicker : Int{
         case camera = 1, album
@@ -146,6 +148,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         // Render view to an image
         topNavBar.isHidden = true
         bottomToolBar.isHidden = true
+        topText = topTF.text!
+        bottomText = bottomTF.text!
+        bottomTF.resignFirstResponder()
+        topTF.resignFirstResponder()
         
         UIGraphicsBeginImageContext(view.frame.size)
         view.drawHierarchy(in: view.frame, afterScreenUpdates: true)
@@ -162,7 +168,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         guard let imageFromPicker = imageFromPicker.image else {
             return
         }
-        aMeme = Meme(topText: topTF.text!, bottomText: bottomTF.text!, originalImage: imageFromPicker, memeImage: memeImage)
+        aMeme = Meme(topText: topText, bottomText: bottomText, originalImage: imageFromPicker, memeImage: memeImage)
         
         // Add it to the memes array in the Application Delegate
         let object = UIApplication.shared.delegate

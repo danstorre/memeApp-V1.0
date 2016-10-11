@@ -66,12 +66,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xd-Sf-hLA">
-                                <frame key="frameInset" minY="216" width="100.00%" height="234"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5xd-Sf-hLA"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5xd-Sf-hLA" firstAttribute="height" secondItem="VeT-EU-thk" secondAttribute="height" id="5CI-nB-P0b"/>
+                            <constraint firstItem="5xd-Sf-hLA" firstAttribute="width" secondItem="VeT-EU-thk" secondAttribute="width" id="Gfp-Hb-Zy3"/>
+                            <constraint firstItem="5xd-Sf-hLA" firstAttribute="centerX" secondItem="VeT-EU-thk" secondAttribute="centerX" id="Jhn-uf-cer"/>
+                            <constraint firstItem="5xd-Sf-hLA" firstAttribute="centerY" secondItem="VeT-EU-thk" secondAttribute="centerY" id="eUH-gH-bmY"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageMeme" destination="5xd-Sf-hLA" id="gzH-Qv-I2A"/>
@@ -93,18 +96,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fj7-Rd-iEi">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="396" id="75u-jz-2iJ"/>
-                                    <constraint firstAttribute="height" constant="300" id="Y5W-bi-SD1"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="75u-jz-2iJ"/>
-                                        <exclude reference="Y5W-bi-SD1"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fj7-Rd-iEi"/>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GOZ-43-p32" customClass="DefaultTextField" customModule="MemeMe_1_0" customModuleProvider="target">
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="40"/>
@@ -160,31 +152,29 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Fj7-Rd-iEi" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4Na-9T-HUM"/>
                             <constraint firstAttribute="leadingMargin" secondItem="HXa-Os-60g" secondAttribute="leading" constant="20" id="4i9-6F-Syx"/>
-                            <constraint firstItem="HXa-Os-60g" firstAttribute="top" secondItem="Fj7-Rd-iEi" secondAttribute="bottom" id="AFT-fj-gwC"/>
+                            <constraint firstItem="Fj7-Rd-iEi" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="7Ug-3a-Ezf"/>
                             <constraint firstItem="9U1-pC-pE3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Aiv-By-HHe"/>
                             <constraint firstItem="9U1-pC-pE3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="CzB-kT-Mu2"/>
                             <constraint firstItem="9U1-pC-pE3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G1j-f3-h7v"/>
-                            <constraint firstItem="Fj7-Rd-iEi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GuR-ee-kkG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9U1-pC-pE3" secondAttribute="trailing" id="HP2-k6-nPn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fj7-Rd-iEi" secondAttribute="trailing" constant="-20" id="KAF-mN-dz2"/>
                             <constraint firstItem="SVg-NH-Dlg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Rxn-rd-80Y"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HXa-Os-60g" secondAttribute="bottom" id="ToR-US-eHp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HXa-Os-60g" secondAttribute="trailing" constant="-20" id="VXt-ft-PVV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GOZ-43-p32" secondAttribute="trailing" id="Xia-5R-gBQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SVg-NH-Dlg" secondAttribute="trailing" constant="-20" id="Yvc-NK-7Gb"/>
-                            <constraint firstItem="Fj7-Rd-iEi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ajw-yl-ixb"/>
                             <constraint firstItem="9U1-pC-pE3" firstAttribute="top" secondItem="SVg-NH-Dlg" secondAttribute="bottom" constant="20" id="cin-Ji-4jN"/>
+                            <constraint firstItem="Fj7-Rd-iEi" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="gbq-qv-WnK"/>
                             <constraint firstItem="GOZ-43-p32" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="i5W-JP-JUh"/>
                             <constraint firstItem="HXa-Os-60g" firstAttribute="top" secondItem="GOZ-43-p32" secondAttribute="bottom" constant="20" id="iii-Zy-NHv"/>
-                            <constraint firstItem="Fj7-Rd-iEi" firstAttribute="top" secondItem="SVg-NH-Dlg" secondAttribute="bottom" id="kRX-qA-fMV"/>
                             <constraint firstItem="SVg-NH-Dlg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="xJ2-dZ-ckQ"/>
                             <constraint firstItem="GOZ-43-p32" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zAg-h6-uGb"/>
+                            <constraint firstItem="Fj7-Rd-iEi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zBs-23-9x7"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="Aiv-By-HHe"/>
-                                <exclude reference="GuR-ee-kkG"/>
                             </mask>
                         </variation>
                     </view>
