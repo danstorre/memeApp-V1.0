@@ -18,6 +18,8 @@ class SentMemesTableVC: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    
+    var selectedMeme : Meme?
 
     
     override func viewDidLoad() {
@@ -63,22 +65,23 @@ class SentMemesTableVC: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let memeEditorVC = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
-        let selectedMeme = memes[indexPath.row]
         
-        memeEditorVC.aMeme = selectedMeme
+        selectedMeme = memes[indexPath.row]
+        self.performSegue(withIdentifier: "detailMeme", sender: self)
         
-        self.present(memeEditorVC, animated: true, completion: nil)
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "detailMeme" {
+     
+            let memeEditorVC = segue.destination as! DetailMemeViewController
+     
+            memeEditorVC.memeSelected = selectedMeme
+        }
     }
-    */
 
 }

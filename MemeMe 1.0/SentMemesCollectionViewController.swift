@@ -16,6 +16,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     
+    var selectedMeme : Meme?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let space: CGFloat = 3
@@ -64,22 +66,23 @@ class SentMemesCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let memeEditorVC = self.storyboard!.instantiateViewController(withIdentifier: "MemeEditorViewController") as! MemeEditorViewController
-        let selectedMeme = memes[indexPath.row]
-        
-        memeEditorVC.aMeme = selectedMeme
-        
-        self.present(memeEditorVC, animated: true, completion: nil)
+        selectedMeme = memes[indexPath.row]
+        self.performSegue(withIdentifier: "detailMeme", sender: self)
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "detailMeme" {
+            
+            let memeEditorVC = segue.destination as! DetailMemeViewController
+            
+            memeEditorVC.memeSelected = selectedMeme
+        }
     }
-    */
+    
 
 }
